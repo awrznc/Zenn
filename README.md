@@ -18,11 +18,14 @@ https://zenn.dev/awrznc
 Dockerを利用した環境構築を以下に示します。
 
 ```bash
-# Linux or macOS
-docker run --rm -it -v "$(pwd):/opt" --workdir="/opt" -p "8000:8000" node:16 bash -c "npm install && npx zenn preview"
+# Linux
+docker run --rm -it -v "$(pwd):/opt" --workdir="/opt" -p "8000:8000" node:22 bash -c "npm install --no-optional && npx zenn preview"
+
+# macOS
+docker run --rm -it -v "$(pwd):/opt" --workdir="/opt" -p "8000:8000" node:22 bash -c "npm install && npx zenn preview"
 
 # Windows (Git Bash)
-powershell 'docker run --rm -it -v "$(pwd):/opt" --workdir="/opt" -p "8000:8000" node:16 bash -c "npm install && npx zenn preview"'
+powershell 'docker run --rm -it -v "$(pwd):/opt" --workdir="/opt" -p "8000:8000" node:22 bash -c "npm install && npx zenn preview"'
 
 # => http://localhost:8000
 ```
